@@ -1,4 +1,6 @@
-
+/**
+ * A basic position class
+ */
 public class Position {
 	/** The x position of this location **/
 	private int x;
@@ -7,9 +9,9 @@ public class Position {
 	private int y;
 	
 	/**
-	 * Parameterized constructor, initializes x and y to given location values
+	 * Parametrized constructor, initializes x and y to given location values
 	 * 
-	 * @param loc	the location whose value is constructed
+	 * @param pos the location whose value is constructed
 	 */
 	public Position(Position pos) {
 		this.x = pos.x;
@@ -17,7 +19,7 @@ public class Position {
 	}
 	
 	/**
-	 * Parameterized constructor, initializes x and y to given values
+	 * Parametrized constructor, initializes x and y to given values
 	 * 
 	 * @param x	the x of this location
 	 * @param y	the y of this location
