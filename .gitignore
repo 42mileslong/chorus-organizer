@@ -34,5 +34,6 @@ local.properties
 
 .xml
 .name
-.iml
-.class
+*.iml
+*.class
+.idea
