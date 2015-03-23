@@ -20,7 +20,7 @@ public class World {
 	 * 
 	 * @param student	the student to be added
 	 */
-	public void add (Student student) {
+	public void add(Student student) {
 		students.add(student);
 	}
 	
@@ -29,7 +29,7 @@ public class World {
 	 * 
 	 * @param student	the student to be removed
 	 */
-	public void remove (Student student) {
+	public void remove(Student student) {
 		students.remove(student);
 	}
 }
