@@ -20,7 +20,7 @@ public class Student {
     }
 	
     /**
-     * THe enum describing gender
+     * The enum describing gender
      */
     public static enum Gender {
     	MALE,
@@ -50,7 +50,7 @@ public class Student {
     
     /** The parameterized constructor of a student, sets position**/
     public Student(Position pos) {
-    	this("", pos, Pitch.UNKNOWN, Gender.UNKNOWN, 0);
+    	this("[Insert Name]", pos, Pitch.UNKNOWN, Gender.UNKNOWN, 0);
     }
     
     /** The parameterized constructor of a student, sets fields to parameters **/
