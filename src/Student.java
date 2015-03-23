@@ -1,6 +1,6 @@
 
 /**
- * THe class representing a Student
+ * The class representing a Student
  * @author Benjamin Cohen-Wang
  */
 public class Student {
