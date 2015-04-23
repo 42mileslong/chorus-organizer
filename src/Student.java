@@ -19,9 +19,9 @@ public class Student {
     	TREBLE(new Color(64, 86, 122)),
     	BASS(new Color(73, 67, 127)),
     	UNKNOWN(new Color(137, 137, 137));
-    	
+
     	Color color;
-    	
+
     	private Pitch(Color color) {
     		this.color = color;
     	}
@@ -191,7 +191,7 @@ public class Student {
 	}
 	
 	/**
-	 * @param name the skill to set
+	 * @param skill the skill to set
 	 */
 	public void setSkill(int skill) {
 		this.skill = skill;
