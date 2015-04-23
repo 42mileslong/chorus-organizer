@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * A class representing a world
  * @author Benjamin Cohen-Wang
  */
-public class World {
+public class World implements Drawable{
     /** The collection of students of this world **/
 	ArrayList<Student> students;
 
@@ -62,4 +62,12 @@ public class World {
     public void setSize(Dimension size) {
         this.size = size;
     }
+
+	/**
+	 * Draws this drawable object
+	 * @param graphics	the graphics object to be drawn on
+	 */
+	public void draw(Graphics graphics) {
+		
+	}
 }
