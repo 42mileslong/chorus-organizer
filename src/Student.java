@@ -10,18 +10,18 @@ public class Student {
      * The enum describing pitch
      */
     public static enum Pitch {
-    	SOPRANO(new Color(0, 0, 0)),
-    	MEZZO_SOPRANO(new Color(0, 0, 0)),
-    	CONTRALTO(new Color(0, 0, 0)),
-    	COUNTERTENOR(new Color(0, 0, 0)),
-    	TENOR(new Color(0, 0, 0)),
-    	BARITONE(new Color(0, 0, 0)),
-    	TREBLE(new Color(0, 0, 0)),
-    	BASS(new Color(0, 0, 0)),
-    	UNKNOWN(new Color(0, 0, 0));
-    	
+    	SOPRANO(new Color(129, 85, 109)),
+    	MEZZO_SOPRANO(new Color(129, 55, 62)),
+    	CONTRALTO(new Color(129, 83, 48)),
+    	COUNTERTENOR(new Color(129, 126, 72)),
+    	TENOR(new Color(82, 129, 95)),
+    	BARITONE(new Color(86, 125, 129)),
+    	TREBLE(new Color(64, 86, 122)),
+    	BASS(new Color(73, 67, 127)),
+    	UNKNOWN(new Color(137, 137, 137));
+
     	Color color;
-    	
+
     	private Pitch(Color color) {
     		this.color = color;
     	}
@@ -49,15 +49,15 @@ public class Student {
     public static Color getGradeColor(int grade) {
     	switch(grade) {
     	case 9:
-    		return new Color(0, 0, 0);
+    		return new Color(67, 40, 24);
     	case 10:
-    		return new Color(0, 0, 0);
+    		return new Color(45, 90, 60);
     	case 11:
-    		return new Color(0, 0, 0);
+    		return new Color(42, 51, 68);
     	case 12:
-    		return new Color(0, 0, 0);
+    		return new Color(79, 44, 72);
     	default:
-    		return new Color(0, 0, 0);
+    		return new Color(44, 44, 44);
     	}
     }
     
@@ -70,27 +70,27 @@ public class Student {
     public static Color getSkillColor(int skill) {
     	switch(skill) {
     	case 1:
-    		return new Color(0, 0, 0);
+    		return new Color(119, 102, 193);
     	case 2:
-    		return new Color(0, 0, 0);
+    		return new Color(110, 155, 193);
     	case 3:
-    		return new Color(0, 0, 0);
+    		return new Color(102, 193, 159);
     	case 4:
-    		return new Color(0, 0, 0);
+    		return new Color(88, 193, 96);
     	case 5:
-    		return new Color(0, 0, 0);
+    		return new Color(181, 193, 86);
     	case 6:
-    		return new Color(0, 0, 0);
+    		return new Color(193, 159, 88);
     	case 7:
-    		return new Color(0, 0, 0);
+    		return new Color(193, 102, 82);
     	case 8:
-    		return new Color(0, 0, 0);
+    		return new Color(193, 74, 38);
     	case 9:
-    		return new Color(0, 0, 0);
+    		return new Color(193, 94, 133);
     	case 10:
-    		return new Color(0, 0, 0);
+    		return new Color(157, 14, 142);
     	default:
-    		return new Color(0, 0, 0);
+    		return new Color(223, 223, 223);
     	}
     }
     
@@ -191,7 +191,7 @@ public class Student {
 	}
 	
 	/**
-	 * @param name the skill to set
+	 * @param skill the skill to set
 	 */
 	public void setSkill(int skill) {
 		this.skill = skill;

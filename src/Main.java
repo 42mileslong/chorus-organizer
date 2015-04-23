@@ -13,7 +13,7 @@ public class Main {
 
     /**
      * Creates a frame and adds the display to the frame
-     * @param args
+     * @param args unused parameter
      */
     public static void main(String args[]) {
         initDisplay();
