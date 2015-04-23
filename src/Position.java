@@ -35,12 +35,7 @@ public class Position {
 	}
 
 	public boolean equals(Position other) {
-		if(this.x == other.x && this.y == other.y && this.rotation == other.rotation) {
-			return true;
-		}
-		else {
-			return false;
-		}
+        return (this.x == other.x && this.y == other.y && this.rotation == other.rotation);
 	}
 	
 	public int getX() {
