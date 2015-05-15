@@ -28,6 +28,16 @@ public class Position {
 	 * @param x	the x of this location
 	 * @param y	the y of this location
 	 */
+	public Position(int x, int y) {
+		this(x, y, 0);
+	}
+	
+	/**
+	 * Parametrized constructor, initializes x and y to given values
+	 * 
+	 * @param x	the x of this location
+	 * @param y	the y of this location
+	 */
 	public Position(int x, int y, double r) {
 		this.x = x;
 		this.y = y;

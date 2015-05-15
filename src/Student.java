@@ -1,11 +1,18 @@
-import java.awt.Color;
 
+import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  * The class representing a Student
  * @author Benjamin Cohen-Wang
  */
-public class Student {
+public class Student implements Drawable {
+	/** The length of the triangle representing this student **/
+	public static int LENGTH;
+	
+	/** The width of the triangle representing this student **/
+	public static int WIDTH;
+	
     /**
      * The enum describing pitch
      */
@@ -148,6 +155,31 @@ public class Student {
     	setGrade(grade);
     }
     
+	/**
+	 * Draws this student
+	 */
+	@Override
+	public void draw(Graphics graphics)
+	{
+		
+	}
+	
+	public Position[] rotate(Position point, double angle, Position[] points)
+	{
+		Position[] rotatedPoints = new Position[points.length];
+		
+		for(int i = 0; i < points.length; i ++)
+		{
+			double xCoord = points[i].getX();
+			double yCoord = points[i].getY();
+			double cos = Math.cos(angle);
+			double sin = Math.sin(angle);
+			rotatedPoints[i] = new Position((int) (xCoord*cos - yCoord*sin), (int)(xCoord*sin + yCoord*cos));
+		}
+		
+		return rotatedPoints;
+	}
+    
     /**
 	 * @return the skill
 	 */
@@ -231,5 +263,4 @@ public class Student {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-    
 }
