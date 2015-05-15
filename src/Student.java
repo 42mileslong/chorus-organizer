@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Polygon;
 
 /**
  * The class representing a Student
@@ -161,7 +162,23 @@ public class Student implements Drawable {
 	@Override
 	public void draw(Graphics graphics)
 	{
+		Position[] points = new Position[3];
 		
+		points[0] = new Position(pos.getX(), pos.getY() + LENGTH/2);
+		points[1] = new Position(pos.getX() + WIDTH/2, pos.getY() - LENGTH/2);
+		points[2] = new Position(pos.getX() - WIDTH/2, pos.getY() - LENGTH/2);
+		
+		Position[] rotatedPoints = rotate(pos, pos.getRotation(), points);
+		
+		int[] xPoints = new int[points.length];
+		int[] yPoints = new int[points.length];
+		
+		for(int i = 0; i < rotatedPoints.length; i ++) {
+			xPoints[i] = rotatedPoints[i].getX();
+			yPoints[i] = rotatedPoints[i].getY();
+		}
+		
+		graphics.drawPolygon(new Polygon(xPoints, yPoints, points.length));
 	}
 	
 	public Position[] rotate(Position point, double angle, Position[] points)
