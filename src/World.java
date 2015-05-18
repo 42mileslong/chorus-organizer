@@ -69,6 +69,8 @@ public class World implements Drawable{
 	 * @param graphics	the graphics object to be drawn on
 	 */
 	public void draw(Graphics graphics) {
-		
+		for(Student student : students) {
+			student.draw(graphics);
+		}
 	}
 }

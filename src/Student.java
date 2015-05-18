@@ -9,10 +9,10 @@ import java.awt.Polygon;
  */
 public class Student implements Drawable {
 	/** The length of the triangle representing this student **/
-	public static int LENGTH;
+	public static final int LENGTH = 20;
 	
 	/** The width of the triangle representing this student **/
-	public static int WIDTH;
+	public static final int WIDTH = 10;
 	
     /**
      * The enum describing pitch
@@ -160,25 +160,61 @@ public class Student implements Drawable {
 	 * Draws this student
 	 */
 	@Override
-	public void draw(Graphics graphics)
-	{
-		Position[] points = new Position[3];
+	public void draw(Graphics graphics) {
+		Position[] firstPoints = new Position[3];
 		
-		points[0] = new Position(pos.getX(), pos.getY() + LENGTH/2);
-		points[1] = new Position(pos.getX() + WIDTH/2, pos.getY() - LENGTH/2);
-		points[2] = new Position(pos.getX() - WIDTH/2, pos.getY() - LENGTH/2);
+		firstPoints[0] = new Position(pos.getX(), pos.getY() + LENGTH/2);
+		firstPoints[1] = new Position(pos.getX() - WIDTH/2, pos.getY() - LENGTH/2);
+		firstPoints[2] = new Position(pos.getX() - WIDTH/6, pos.getY() - LENGTH/2);
 		
-		Position[] rotatedPoints = rotate(pos, pos.getRotation(), points);
+		Position[] secondPoints = new Position[3];
 		
-		int[] xPoints = new int[points.length];
-		int[] yPoints = new int[points.length];
+		secondPoints[0] = new Position(pos.getX(), pos.getY() + LENGTH/2);
+		secondPoints[1] = new Position(pos.getX() - WIDTH/6, pos.getY() - LENGTH/2);
+		secondPoints[2] = new Position(pos.getX() + WIDTH/6, pos.getY() - LENGTH/2);
 		
-		for(int i = 0; i < rotatedPoints.length; i ++) {
-			xPoints[i] = rotatedPoints[i].getX();
-			yPoints[i] = rotatedPoints[i].getY();
+		Position[] thirdPoints = new Position[3];
+		
+		thirdPoints[0] = new Position(pos.getX(), pos.getY() + LENGTH/2);
+		thirdPoints[1] = new Position(pos.getX() + WIDTH/6, pos.getY() - LENGTH/2);
+		thirdPoints[2] = new Position(pos.getX() + WIDTH/2, pos.getY() - LENGTH/2);
+		
+		Position[] firstRotatedPoints = rotate(pos, pos.getRotation(), firstPoints);
+		Position[] secondRotatedPoints = rotate(pos, pos.getRotation(), secondPoints);
+		Position[] thirdRotatedPoints = rotate(pos, pos.getRotation(), thirdPoints);
+		
+		int[] firstXPoints = new int[firstPoints.length];
+		int[] firstYPoints = new int[firstPoints.length];
+		
+		for(int i = 0; i < firstRotatedPoints.length; i ++) {
+			firstXPoints[i] = firstRotatedPoints[i].getX();
+			firstYPoints[i] = firstRotatedPoints[i].getY();
 		}
 		
-		graphics.drawPolygon(new Polygon(xPoints, yPoints, points.length));
+		int[] secondXPoints = new int[secondPoints.length];
+		int[] secondYPoints = new int[secondPoints.length];
+		
+		for(int i = 0; i < secondRotatedPoints.length; i ++) {
+			secondXPoints[i] = secondRotatedPoints[i].getX();
+			secondYPoints[i] = secondRotatedPoints[i].getY();
+		}
+		
+		int[] thirdXPoints = new int[thirdPoints.length];
+		int[] thirdYPoints = new int[thirdPoints.length];
+		
+		for(int i = 0; i < thirdRotatedPoints.length; i ++) {
+			thirdXPoints[i] = thirdRotatedPoints[i].getX();
+			thirdYPoints[i] = thirdRotatedPoints[i].getY();
+		}
+		
+		graphics.setColor(pitch.getColor());
+		graphics.fillPolygon(new Polygon(firstXPoints, firstYPoints, firstPoints.length));
+		
+		graphics.setColor(getGradeColor(grade));
+		graphics.fillPolygon(new Polygon(secondXPoints, secondYPoints, secondPoints.length));
+		
+		graphics.setColor(getSkillColor(skill));
+		graphics.fillPolygon(new Polygon(thirdXPoints, thirdYPoints, thirdPoints.length));
 	}
 	
 	public Position[] rotate(Position point, double angle, Position[] points)
