@@ -11,6 +11,8 @@ public class Main {
 
     private static Dimension screenSize;
 
+    private static World world = new World();
+
     /**
      * Creates a frame and adds the display to the frame
      * @param args unused parameter
@@ -19,7 +21,12 @@ public class Main {
         initDisplay();
     }
 
-    public static void initDisplay() {
+    private static void test() {
+        world.add(new Student("Ben", new Position(42, 42), Student.Pitch.BASS, Student.Gender.MALE, 10));
+        display.repaint();
+    }
+
+    private static void initDisplay() {
         // finds the available size of the screen
         initScreenSize();
 
@@ -34,7 +41,7 @@ public class Main {
         frame.add(display);
     }
 
-    public static void initScreenSize() {
+    private static void initScreenSize() {
         screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getSize();
     }
 

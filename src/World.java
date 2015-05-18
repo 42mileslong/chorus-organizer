@@ -25,6 +25,7 @@ public class World implements Drawable{
 	 */
 	public void add(Student student) {
 		students.add(student);
+        Main.getDisplay().repaint();
 	}
 	
 	/**
