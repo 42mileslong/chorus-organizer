@@ -19,6 +19,7 @@ public class Main {
      */
     public static void main(String args[]) {
         initDisplay();
+        test();
     }
 
     private static void test() {
