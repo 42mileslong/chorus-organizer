@@ -45,6 +45,10 @@ public class Main {
         screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getSize();
     }
 
+    public static World getWorld() {
+        return world;
+    }
+
     public static Display getDisplay() {
         return display;
     }

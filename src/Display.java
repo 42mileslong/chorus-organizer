@@ -21,6 +21,6 @@ public class Display extends JComponent {
      * @param g graphics
      */
     public void paint(Graphics g) {
-
+        Main.getWorld().draw(g);
     }
 }
