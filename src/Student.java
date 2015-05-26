@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
@@ -9,10 +10,10 @@ import java.awt.Polygon;
  */
 public class Student implements Drawable {
 	/** The length of the triangle representing this student **/
-	public static final int LENGTH = 20;
+	public static final int LENGTH = 60;
 	
 	/** The width of the triangle representing this student **/
-	public static final int WIDTH = 10;
+	public static final int WIDTH = 30;
 	
     /**
      * The enum describing pitch
@@ -215,19 +216,28 @@ public class Student implements Drawable {
 		
 		graphics.setColor(getSkillColor(skill));
 		graphics.fillPolygon(new Polygon(thirdXPoints, thirdYPoints, thirdPoints.length));
+		
+		graphics.setColor(Color.BLACK);
+		graphics.drawPolygon(new Polygon(firstXPoints, firstYPoints, firstPoints.length));
+		graphics.drawPolygon(new Polygon(secondXPoints, secondYPoints, secondPoints.length));
+		graphics.drawPolygon(new Polygon(thirdXPoints, thirdYPoints, thirdPoints.length));
+		
+		Font nameFont = new Font("Arial", Font.BOLD, 12);
+		graphics.setFont(nameFont);
+		graphics.drawString(name, pos.getX() - name.length()*nameFont.getSize()/4, pos.getY() + 3*LENGTH/4);
 	}
 	
-	public Position[] rotate(Position point, double angle, Position[] points)
-	{
+	public Position[] rotate(Position point, double angle, Position[] points) {
 		Position[] rotatedPoints = new Position[points.length];
 		
-		for(int i = 0; i < points.length; i ++)
-		{
-			double xCoord = points[i].getX();
-			double yCoord = points[i].getY();
-			double cos = Math.cos(angle);
-			double sin = Math.sin(angle);
-			rotatedPoints[i] = new Position((int) (xCoord*cos - yCoord*sin), (int)(xCoord*sin + yCoord*cos));
+		for(int i = 0; i < points.length; i ++) {
+			double xCoord = points[i].getX() - point.getX();
+			double yCoord = points[i].getY() - point.getY();
+			
+			double cos = Math.cos(-angle);
+			double sin = Math.sin(-angle);
+			
+			rotatedPoints[i] = new Position((int) (xCoord*cos - yCoord*sin + point.getX()), (int)(xCoord*sin + yCoord*cos + point.getY()));
 		}
 		
 		return rotatedPoints;

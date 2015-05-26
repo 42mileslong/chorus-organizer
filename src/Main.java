@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.*;
 
 /**
@@ -23,8 +24,27 @@ public class Main {
     }
 
     private static void test() {
-        world.add(new Student("Ben", new Position(42, 42), Student.Pitch.BASS, Student.Gender.MALE, 10));
+        world.add(new Student("Ben", new Position(100, 100, Math.PI/4), Student.Pitch.BASS, Student.Gender.MALE, 10));
+        world.add(new Student("Rafi", new Position(200, 100, -Math.PI/4), Student.Pitch.SOPRANO, Student.Gender.MALE, 10));
         display.repaint();
+        
+        for(double i = 0; i < 10*Math.PI; i += 0.01)
+        {
+        	for(Student student : world.getStudents())
+        	{
+        		student.getPos().setRotation(i);
+        	}
+        	
+        	try
+			{
+				Thread.sleep(10);
+			} 
+        	catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+        	display.repaint();
+        }
     }
 
     private static void initDisplay() {
